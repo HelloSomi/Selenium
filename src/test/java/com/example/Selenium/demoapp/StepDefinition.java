@@ -74,7 +74,7 @@ public class StepDefinition {
 
     @Then("User should see the link {string} with correct link text")
     public void userShouldSeeTheLinkWithCorrectLinkText(String expectedLinkText) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement availabilityLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Tillgänglighet i SVT Play")));
 
         assertTrue(availabilityLink.isDisplayed());
@@ -87,7 +87,7 @@ public class StepDefinition {
 
     @When("User clicks the link Tillgänglighet i SVT Play")
     public void userClicksTheLinkForAvailabilityInSVTPlay() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement availabilityLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("Tillgänglighet i SVT Play")));
 
         assertTrue(availabilityLink.isDisplayed());
@@ -102,7 +102,7 @@ public class StepDefinition {
 
     @When("User clicks the Programs link")
     public void userNavigatesToTheProgramsPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[role='main']")));
         WebElement programLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/program']")));
@@ -112,7 +112,7 @@ public class StepDefinition {
 
     @Then("User should see {int} categories listed")
     public void userShouldSeeCategoriesListed(int expectedCount) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement categorySection = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("section[aria-label='Kategorier']")));
         List<WebElement> categoryList = categorySection.findElements(By.tagName("article"));
         assertEquals(expectedCount, categoryList.size());
@@ -120,7 +120,7 @@ public class StepDefinition {
 
     @Then("User should see the {string} link in the footer with correct link text")
     public void userShouldSeeKontaktLinkInTheFooter(String expectedLinkText){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[data-rt='footer-buttons']")));
         WebElement contactLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='https://kontakt.svt.se']")));
@@ -131,7 +131,7 @@ public class StepDefinition {
 
     @Then("User should see {string} movie in the FilmTips section")
     public void userShouldSeeUppenbarelsenInTheFilmTips(String expectedMovie) throws InterruptedException {
-        Thread.sleep(30000);
+        Thread.sleep(5000);
         assertTrue(driver.findElement(
                         By.xpath("//section[@aria-label='Filmtips']//f-4-2-0[contains(@class,'sc-c7947d35-4 dRNUOY')]//article//a[@aria-label='"+expectedMovie+"']"))
                 .isDisplayed());
@@ -139,7 +139,7 @@ public class StepDefinition {
 
     @Then("User should see the {string} program")
     public void userShpuldSeeDragRaceSverigeProgram(String expectedProgram) throws InterruptedException {
-        Thread.sleep(30000);
+        Thread.sleep(5000);
 
         WebElement program = driver.findElement(By.className("sc-c7947d35-4")).findElement(By.xpath("//a[@href='/drag-race-sverige']"));
 
@@ -156,7 +156,7 @@ public class StepDefinition {
 
     @When("User inputs {string} on the search form and submits")
     public void userInputsValueOnTheSearchForm(String searchTerm) throws InterruptedException {
-        Thread.sleep(30000);
+        Thread.sleep(5000);
 
         WebElement searchField = driver.findElement(By.name("q"));
         searchField.clear();
@@ -166,7 +166,7 @@ public class StepDefinition {
     @Then("User should see {string} on the search result")
     public void userShouldSeeSearchResultOnTheSearchForm(String expectedResult) throws InterruptedException {
 
-        Thread.sleep(30000);
+        Thread.sleep(5000);
 
         List<WebElement> searchResults = driver.findElements(By.cssSelector(".sc-9b48bf1b-1.inJkRt li"));
 
